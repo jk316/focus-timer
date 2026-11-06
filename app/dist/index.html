@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>专注时钟</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app">
+    <div id="topbar">
+      <button id="btn-stats" class="icon-btn" title="专注统计">📊</button>
+      <button id="btn-min" class="icon-btn" title="缩到托盘">─</button>
+      <button id="btn-close" class="icon-btn" title="退出">✕</button>
+    </div>
+
+    <section id="display">
+      <div id="time">30:00</div>
+      <div id="task">尚未开始专注</div>
+      <div id="today">今日 0 分钟</div>
+    </section>
+
+    <footer id="controls">
+      <button id="btn-start" class="primary">开始专注</button>
+      <button id="btn-pause" class="hidden">暂停</button>
+      <button id="btn-resume" class="hidden">继续</button>
+      <button id="btn-finish" class="hidden">结束</button>
+      <button id="btn-reset" class="hidden">重置</button>
+    </footer>
+
+    <div id="resize-grip" title="拖动调整大小"></div>
+
+    <!-- 任务输入弹窗 -->
+    <div id="task-modal" class="overlay hidden">
+      <div class="card">
+        <h2>本次专注任务</h2>
+        <input id="task-input" type="text" maxlength="100" placeholder="这个时间段要做什么？" />
+        <div class="duration-row">
+          <label for="duration-select">时长</label>
+          <select id="duration-select">
+            <option value="1800" selected>30 分钟</option>
+            <option value="1500">25 分钟</option>
+            <option value="900">15 分钟</option>
+            <option value="2700">45 分钟</option>
+            <option value="3600">60 分钟</option>
+            <option value="300">5 分钟</option>
+          </select>
+        </div>
+        <div class="actions">
+          <button id="btn-cancel">取消</button>
+          <button id="btn-confirm" class="primary">开始专注</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 统计面板 -->
+    <div id="stats-panel" class="overlay hidden">
+      <div class="card stats-card">
+        <div class="stats-head">
+          <h2>专注统计</h2>
+          <button id="btn-stats-close" class="icon-btn">✕</button>
+        </div>
+        <div class="stats-today">今日总专注 <b id="stats-today-total">0 分钟</b></div>
+        <label class="autostart-row">
+          <input type="checkbox" id="autostart-toggle" />
+          开机自启
+        </label>
+        <select id="stats-date-select"></select>
+        <ul id="stats-sessions"></ul>
+      </div>
+    </div>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Rust 工具链（装在工作区内，体积巨大，不入库）
+.rustup/
+.cargo/
+
+# 构建产物
+app/src-tauri/target/
+
+# 自动生成的 schema
+app/src-tauri/gen/
+
+# 开发期数据
+data/
